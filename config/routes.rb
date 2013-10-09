@@ -1,4 +1,6 @@
 Ev01::Application.routes.draw do
+  resources :startups
+
   devise_for :users
   root 'pages#home'
 
