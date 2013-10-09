@@ -3,3 +3,33 @@
 .jumbotron {
 	margin-top: 60px;
 }
+
+footer {
+  margin-top: 60px;
+  padding-top: 5px;
+  border-top: 1px;
+  a {
+  	color: gray;
+  }
+
+  a:hover {
+  	color: darkgrey;
+  }
+  small {
+    float: left;
+  }
+  ul {
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+header {
+	margin-bottom: 80px;
+}
+

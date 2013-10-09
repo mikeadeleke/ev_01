@@ -2,11 +2,12 @@ Ev01::Application.routes.draw do
   resources :startups
 
   devise_for :users
-  root 'pages#home'
+  root 'startups#index'
 
   get '/about', to: 'pages#about'
   get '/contact', to: 'pages#contact'
   get '/why', to: 'pages#why'
+  get '/new', to: 'startups#new'
 
   get "pages/home"
   get "pages/about"

@@ -1,11 +1,14 @@
 class StartupsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_startup, only: [:show, :edit, :update, :destroy]
+  
 
   def index
     @startups = Startup.all
   end
 
-  def show
+  def show  
+
   end
 
   def new
@@ -45,6 +48,6 @@ class StartupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def startup_params
-      params.require(:startup).permit(:description)
+      params.require(:startup).permit(:name, :URl, :description)
     end
 end

@@ -1,11 +1,13 @@
-<h1>Listing startups</h1>
+<%= render 'layouts/header' %>
+<% if user_signed_in? %>
+  <h1>Collection</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Url</th>
-      <th>Description</th>
+      <th>What is it?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,6 +23,7 @@
         <td><%= link_to 'Show', startup %></td>
         <td><%= link_to 'Edit', edit_startup_path(startup) %></td>
         <td><%= link_to 'Destroy', startup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= time_ago_in_words(Date.today - 1) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +31,7 @@
 
 <br>
 
-<%= link_to 'New Startup', new_startup_path %>
+<% else %>
+
+<%= render 'pages/home' %>
+<% end %>
