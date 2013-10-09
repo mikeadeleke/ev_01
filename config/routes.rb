@@ -6,10 +6,12 @@ Ev01::Application.routes.draw do
 
   get '/about', to: 'pages#about'
   get '/contact', to: 'pages#contact'
+  get '/why', to: 'pages#why'
 
   get "pages/home"
   get "pages/about"
   get "pages/contact"
+  get "pages/why"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

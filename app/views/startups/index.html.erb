@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Url</th>
       <th>Description</th>
       <th></th>
       <th></th>
@@ -13,6 +15,8 @@
   <tbody>
     <% @startups.each do |startup| %>
       <tr>
+        <td><%= startup.name %></td>
+        <td><%= startup.URl %></td>
         <td><%= startup.description %></td>
         <td><%= link_to 'Show', startup %></td>
         <td><%= link_to 'Edit', edit_startup_path(startup) %></td>

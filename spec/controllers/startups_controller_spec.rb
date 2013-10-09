@@ -23,7 +23,7 @@ describe StartupsController do
   # This should return the minimal set of attributes required to create a valid
   # Startup. As you add validations to Startup, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "description" => "MyString" } }
+  let(:valid_attributes) { { "name" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe StartupsController do
       it "assigns a newly created but unsaved startup as @startup" do
         # Trigger the behavior that occurs when invalid params are submitted
         Startup.any_instance.stub(:save).and_return(false)
-        post :create, {:startup => { "description" => "invalid value" }}, valid_session
+        post :create, {:startup => { "name" => "invalid value" }}, valid_session
         assigns(:startup).should be_a_new(Startup)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Startup.any_instance.stub(:save).and_return(false)
-        post :create, {:startup => { "description" => "invalid value" }}, valid_session
+        post :create, {:startup => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe StartupsController do
         # specifies that the Startup created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Startup.any_instance.should_receive(:update).with({ "description" => "MyString" })
-        put :update, {:id => startup.to_param, :startup => { "description" => "MyString" }}, valid_session
+        Startup.any_instance.should_receive(:update).with({ "name" => "MyString" })
+        put :update, {:id => startup.to_param, :startup => { "name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested startup as @startup" do
@@ -128,7 +128,7 @@ describe StartupsController do
         startup = Startup.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Startup.any_instance.stub(:save).and_return(false)
-        put :update, {:id => startup.to_param, :startup => { "description" => "invalid value" }}, valid_session
+        put :update, {:id => startup.to_param, :startup => { "name" => "invalid value" }}, valid_session
         assigns(:startup).should eq(startup)
       end
 
@@ -136,7 +136,7 @@ describe StartupsController do
         startup = Startup.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Startup.any_instance.stub(:save).and_return(false)
-        put :update, {:id => startup.to_param, :startup => { "description" => "invalid value" }}, valid_session
+        put :update, {:id => startup.to_param, :startup => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
