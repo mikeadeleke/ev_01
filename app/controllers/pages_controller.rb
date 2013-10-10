@@ -7,4 +7,9 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def index
+  	@startups = Startup.all
+  	@playlists = Playlist.all
+  end
 end
