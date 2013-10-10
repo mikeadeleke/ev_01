@@ -1,5 +1,5 @@
 class Playlist < ActiveRecord::Base
-	belong_to :user
+	belongs_to :user
 	has_many :relationships
-	has_many :startups, :through => relationships
+	has_many :startups, :through => :relationships
 end
