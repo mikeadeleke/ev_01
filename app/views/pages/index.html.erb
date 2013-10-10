@@ -1,12 +1,22 @@
-
-
+<% if user_signed_in? %> 
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span4">
     	<%= render 'layouts/playlist' %>
     </div>
     <div class="span8">
+	  <%= form_tag startups_path, :method => 'get' do %>
+	  <p>
+	    <%= text_field_tag :search, params[:search], :'data-provide' => "typeahead" %>
+	    <%= submit_tag "Search", :name => nil %>
+	  </p>
+	<% end %>
       <%= render 'layouts/startup' %>
     </div>
   </div>
 </div>
+<% else %>
+
+<%= render 'pages/home' %>
+
+<% end %>

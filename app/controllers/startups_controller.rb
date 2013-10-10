@@ -5,6 +5,7 @@ class StartupsController < ApplicationController
 
   def index
     @startups = Startup.all
+    @startups = Startup.search(params[:search])
   end
 
   def show  
