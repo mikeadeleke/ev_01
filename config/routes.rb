@@ -1,6 +1,4 @@
 Ev01::Application.routes.draw do
-  resources :relationships
-
   resources :playlists
 
   resources :startups
