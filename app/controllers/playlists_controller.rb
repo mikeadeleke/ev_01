@@ -1,64 +1,43 @@
 class PlaylistsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  
 
-  # GET /playlists
-  # GET /playlists.json
   def index
     @playlists = Playlist.all
   end
 
-  # GET /playlists/1
-  # GET /playlists/1.json
-  def show
+  def show  
+
   end
 
-  # GET /playlists/new
   def new
     @playlist = Playlist.new
   end
 
-  # GET /playlists/1/edit
   def edit
   end
 
-  # POST /playlists
-  # POST /playlists.json
   def create
     @playlist = Playlist.new(playlist_params)
-
-    respond_to do |format|
-      if @playlist.save
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @playlist }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @playlist.errors, status: :unprocessable_entity }
-      end
+    if @playlist.save
+      redirect_to @playlist, notice: 'You just created a playlist on Edopter! Look at you!'
+    else
+      render action: 'new'
     end
   end
 
-  # PATCH/PUT /playlists/1
-  # PATCH/PUT /playlists/1.json
   def update
-    respond_to do |format|
-      if @playlist.update(playlist_params)
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @playlist.errors, status: :unprocessable_entity }
-      end
+    if @playlist.update(playlist_params)
+      redirect_to @playlist, notice: 'You just updated your playlist!'
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /playlists/1
-  # DELETE /playlists/1.json
   def destroy
     @playlist.destroy
-    respond_to do |format|
-      format.html { redirect_to playlists_url }
-      format.json { head :no_content }
-    end
+    redirect_to playlists_url
   end
 
   private

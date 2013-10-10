@@ -29,7 +29,7 @@ class StartupsController < ApplicationController
 
   def update
     if @startup.update(startup_params)
-      redirect_to @startup, notice: 'startup was successfully updated.'
+      redirect_to @startup, notice: 'Startup was successfully updated.'
     else
       render action: 'edit'
     end

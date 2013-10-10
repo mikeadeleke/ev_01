@@ -11,6 +11,7 @@ Ev01::Application.routes.draw do
   get '/why', to: 'pages#why'
   get '/new', to: 'startups#new'
   get '/playlists', to: 'playlists#index'
+  get '/home', to: 'pages#index'
 
   get "pages/home"
   get "pages/about"

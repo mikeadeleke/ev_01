@@ -33,3 +33,24 @@ header {
 	margin-bottom: 80px;
 }
 
+/*Hover Links for startups and playlists*/
+.status {
+    border-bottom: solid 1px #CCC;
+    padding: 5px 0;
+ }
+
+ .status p {
+        margin: 4px 0;
+ }
+
+.status:hover {
+    background: #FAFAFA;
+}
+
+.status .admin {
+    display: none;      
+ }
+
+.status:hover .admin {
+    display: inline;
+}

@@ -1,5 +1,3 @@
-<% if user_signed_in? %>
-<%= render 'layouts/header' %>
 
 <%= link_to "Add a new startup", new_startup_path %>
 
@@ -19,10 +17,6 @@
 <br>
  <% end %>
 
-<% else %>
 
-<%= render 'pages/home' %>
-
-<% end %>
 
 
