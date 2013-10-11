@@ -5,7 +5,7 @@ Ev01::Application.routes.draw do
     end
   end
 
-  resources :bundles, only: [:create]
+  resources :bundles, only: [:create, :destroy]
   resources :startups
 
   devise_for :users
