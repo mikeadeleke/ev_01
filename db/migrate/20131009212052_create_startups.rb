@@ -10,7 +10,7 @@ class CreateStartups < ActiveRecord::Migration
 
     create_table :playlists do |t|
     	t.belongs_to :startup
-    	t.datetime :playlist_date
+    	t.string :playlist_name
     	t.timestamps
     end
 

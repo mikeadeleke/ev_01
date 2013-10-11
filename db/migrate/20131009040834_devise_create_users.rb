@@ -40,13 +40,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
     # add_index :users, :unlock_token,         :unique => true
     create_table :startups do |t|
       t.belongs_to :user
-      t.datetime :startup_date
+      t.string :startup_name
       t.timestamps
     end
 
     create_table :playlists do |t|
       t.belongs_to :user
-      t.datetime :playlist_date
+      t.string :playlist_name
       t.timestamps
     end
   end
