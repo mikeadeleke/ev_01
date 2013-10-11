@@ -8,7 +8,6 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -51,7 +50,7 @@ class PlaylistsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist
-      @playlist = Playlist.find(params[:id])
+      @playlist = Playlist.includes(bundles: :startup).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
