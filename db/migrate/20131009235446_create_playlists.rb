@@ -5,5 +5,12 @@ class CreatePlaylists < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    create_table :user do |t|
+    	t.belongs_to :user
+    	t.datetime :playlist_date
+    	t.timestamps
+    end
+
   end
 end
