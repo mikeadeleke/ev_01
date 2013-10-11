@@ -1,6 +1,6 @@
 class Startup < ActiveRecord::Base
-	has_and_belongs_to_many :user
-	has_many :playlists
+	has_many :bundles
+	has_many :playlists, through: :bundles
 	def self.search(search)
 	  if search
 	    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
