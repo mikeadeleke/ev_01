@@ -4,7 +4,7 @@
 
 <% @playlists.each do |playlist| %>
 <div class="status">
-<strong><%= playlist.name %></strong>
+<strong><%= link_to playlist.name, playlist %></strong>
 <div class="meta">
   <span class="admin">
     | <%= link_to "Edit", edit_playlist_path(playlist) %> |

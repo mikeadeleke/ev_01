@@ -1,14 +1,13 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
-  
+  before_action :set_playlist, only: [:show, :edit, :update, :destroy, :add_to]
+
 
   def index
     @playlists = Playlist.all
   end
 
-  def show  
-
+  def show
   end
 
   def new
@@ -40,10 +39,18 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_url
   end
 
+  def add_to
+    begin
+      @playlist << Bundle.create!(startup: Startup.find(params[:id]))
+    rescue
+      redirect_to @playlist
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist
-      @playlist = Playlist.find(params[:id])
+      @playlist = Playlist.includes(bundles: :startup).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

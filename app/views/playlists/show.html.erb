@@ -1,11 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @playlist.name %>
-</p>
+<h1><%= @playlist.name %></h1>
 
+<ul>
+  <%- @playlist.startups.each do |startup| %>
+    <li>
+      <b><%= startup.name %></b><br />
+      <%= link_to startup.URl, "http://#{startup.URl}" %><br />
+      <%= startup.description %>
+  </li>
+  <% end -%>
+</ul>
 
+<div class="add_bundle_to_playlist">
+  <h3>Add a startup to your playlist</h3>
+  <%= form_tag add_to_playlist_url(@playlist) do %>
+    <%= label_tag "Startup" %>
+    <%= select_tag :startup_id, options_from_collection_for_select(Startup.all, :id, :name) %>
+    <%= submit_tag "Add startup to playlist" %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_playlist_path(@playlist) %> |
 <%= link_to 'Back', root_path %>
