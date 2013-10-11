@@ -1,13 +1,13 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
-  
+
 
   def index
     @playlists = Playlist.all
   end
 
-  def show  
+  def show
 
   end
 
@@ -38,6 +38,14 @@ class PlaylistsController < ApplicationController
   def destroy
     @playlist.destroy
     redirect_to playlists_url
+  end
+
+  def add_to
+    begin
+      @playlist << Bundle.create!(startup: Startup.find(params[:id]))
+    rescue
+      redirect_to @playlist
+    end
   end
 
   private
