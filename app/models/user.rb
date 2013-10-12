@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :startups
   has_many :playlists
+  has_many :bundles, through: :playlists
+  has_many :startups, through: :bundles
 end
