@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20131011174600) do
     t.integer  "user_id"
   end
 
+  create_table "playlists_startups", id: false, force: true do |t|
+    t.integer "playlist_id", null: false
+    t.integer "startup_id",  null: false
+  end
+
+  create_table "relationships", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "startups", force: true do |t|
     t.string   "name"
     t.string   "URl"
